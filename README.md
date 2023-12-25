@@ -2,6 +2,10 @@
 
 StreamEase 工具箱是一款提升工作效率的软件，目前支持 Arxiv 论文检索。
 
+![StreamEase](./docs/img/StreamEase.png)
+
+![Arxiv](./docs/img/Arxiv.png)
+
 ## 功能
 
 - ArXiv 论文检索
