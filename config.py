@@ -1,0 +1,3 @@
+# 百度翻译API
+BAIDU_APP_ID = ""
+BAIDU_APP_KEY = ""
