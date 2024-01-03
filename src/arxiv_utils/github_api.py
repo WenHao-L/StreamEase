@@ -17,6 +17,6 @@ def get_stars(github_code_url):
             stars = str(data['stargazers_count'])
             return stars
         else:
-            return False
+            return "NA"
     except:
-        return False
+        return "NA"

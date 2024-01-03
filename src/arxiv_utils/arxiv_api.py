@@ -14,8 +14,9 @@ def get_authors(authors, first_author = False):
     except:
         return
 
+
 # 爬取arxiv
-def arxiv_search_api(query, sort_by=arxiv.SortCriterion.SubmittedDate, sort_order=arxiv.SortOrder.Descending, start_index=0, last_index=10, page_size=10):
+def arxiv_search_api(query, sort_by=arxiv.SortCriterion.SubmittedDate, sort_order=arxiv.SortOrder.Descending, start_index=0, last_index=5, page_size=5):
     base_url = "https://arxiv.paperswithcode.com/api/v0/papers/"
     paper_result_list = []
 
@@ -35,16 +36,15 @@ def arxiv_search_api(query, sort_by=arxiv.SortCriterion.SubmittedDate, sort_orde
         paper_url = result.entry_id # 文章url
         paper_code_url = base_url + paper_id # 代码url
         paper_abstract = result.summary.replace("\n", "") # 文章摘要需要剔除格式
-        paper_first_author = get_authors(result.authors, first_author=True) # 文章的第一作者
+        paper_authors = get_authors(result.authors) # 文章的作者
         paper_categories = result.primary_category # 文章的分类
         paper_publish_time = result.published.date() # 文章的发布时间
 
-        paper_result = {"paper_id": paper_id,
-                        "paper_title": paper_title,
+        paper_result = {"paper_title": paper_title,
                         "paper_url": paper_url,
                         "paper_code_url": paper_code_url,
                         "paper_abstract": paper_abstract,
-                        "paper_first_author": paper_first_author,
+                        "paper_authors": paper_authors,
                         "paper_categories": paper_categories,
                         "paper_publish_time": paper_publish_time}
         paper_result_list.append(paper_result)
@@ -58,4 +58,4 @@ def get_paper_code_url(code_url):
         github_code_url = code_response["official"]["url"]
         return github_code_url
     else:
-        return
+        return "NA"

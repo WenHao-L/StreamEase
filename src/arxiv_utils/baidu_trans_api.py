@@ -3,6 +3,7 @@ import random
 from hashlib import md5
 from config import BAIDU_APP_ID, BAIDU_APP_KEY
 
+
 # Generate salt and sign
 def make_md5(s, encoding='utf-8'):
     return md5(s.encode(encoding)).hexdigest()
@@ -30,12 +31,12 @@ def baidu_trans(query, appid=BAIDU_APP_ID, appkey=BAIDU_APP_KEY, from_lang='en',
             concatenated_text = '\n'.join(translated_texts)
             return concatenated_text
         else:
-            return
+            return "NA"
     except:
-        return
+        return "NA"
+
 
 if __name__ == "__main__":
     query = 'Hello World! This is 1st paragraph.\nThis is 2nd paragraph.'
-    result = baidu_trans(query, BAIDU_APP_ID, BAIDU_APP_KEY
-)
+    result = baidu_trans(query, BAIDU_APP_ID, BAIDU_APP_KEY)
     print(result)

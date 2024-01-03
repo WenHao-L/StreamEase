@@ -2,17 +2,16 @@
 
 StreamEase 工具箱是一款提升工作效率的软件，目前支持 Arxiv 论文检索。
 
-![StreamEase](./docs/img/StreamEase.png)
+![Arxiv_1](./docs/img/Arxiv_1.png)
 
-![Arxiv](./docs/img/Arxiv.png)
+<!-- ![Arxiv_2](./docs/img/Arxiv_2.png) -->
 
 ## 功能
 
 - ArXiv 论文检索
 
-    - 提取论文标题、作者、摘要、摘要中文翻译、论文链接、代码链接、GitHub 仓库star数、论文分类、论文发表时间
-    
-    - [支持高级检索](https://info.arxiv.org/help/api/user-manual.html)
+    - 提取论文标题、作者、发表时间、分类、论文链接、代码链接、代码仓star数、中英文摘要
+
 
 ## Quick Start
 
@@ -63,13 +62,13 @@ python app.py
         segmentation ANDNOT U-Net
         ```
 
-    - 语句：["语句"]
+    - 词组：["词组"]，用英文双引号括起来
 
         ```
         "medical image segmentation"
         ```
 
-    - 组合检索：[关键词 / "语句"] [布尔运算符] [关键词 / "语句"]
+    - 组合检索：[关键词 / "词组"] [布尔运算符] [关键词 / "词组"]
 
         ```
         "medical image segmentation" AND prostate
@@ -77,20 +76,11 @@ python app.py
 
 - 搜索排序
 
-    - **Search type** : [`SubmittedDate` / `Relevance` / `LastUpdatedDate`]
-        
-        分别表示按提交日期、相关度、最后更新日期进行检索排序
+    - **Sort results by**：
     
-    - **Sort by** : [`Descending` / `Ascending`]
-        
-        分别表示降序和升序
+        搜索排序方式，[`SubmittedDate` / `Relevance` / `LastUpdatedDate`]，分别代表 [`论文提交日期`|`相关性`|`论文最近更新日期`]
+    
     
     - **Start index** & **Last index**
 
         检索结果的起始和结束索引
-
-- 返回结果
-
-    |tittle|author|abstract|abstract_zh|paper_url|code_url|code_stars|categories|publish_time|
-    |------|------|--------|-----------|---------|--------|----------|----------|------------|
-    |论文标题|作者|摘要|摘要中文翻译|论文链接|代码链接|GitHub仓库star数|论文分类|论文发表时间|
